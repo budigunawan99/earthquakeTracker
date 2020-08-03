@@ -1,4 +1,4 @@
-class EqMap extends HTMLElement {
+class ResultList extends HTMLElement {
       constructor() {
             super();
             this._shadowRoot = this.attachShadow({ mode: "open" });
@@ -25,4 +25,4 @@ class EqMap extends HTMLElement {
       }
 }
 
-customElements.define('eq-map', EqMap);
+customElements.define('result-list', ResultList);
