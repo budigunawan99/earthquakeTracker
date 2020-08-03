@@ -1,0 +1,20 @@
+{
+  "name": "earthquaketracker",
+  "version": "1.0.0",
+  "description": "Web application to track earthquake in the world",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "earthquake"
+  ],
+  "author": "Budi Gunawan",
+  "license": "ISC",
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.5.1",
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.5.1",
+    "mapbox-gl": "^1.11.1"
+  }
+}
