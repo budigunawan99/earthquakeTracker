@@ -49,7 +49,7 @@ class SearchMag extends HTMLElement {
                               <div class="form-group">
                                     <label for="criteria">Criteria</label>
                                     <select class="form-control" id="criteria">
-                                          <option value="">Select Magnitude</option>
+                                          <option value="" selected>Select Magnitude</option>
                                           <option value="title"><= 2</option>
                                     </select>
                               </div>
