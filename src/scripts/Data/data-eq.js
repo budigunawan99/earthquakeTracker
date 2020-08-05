@@ -3,17 +3,19 @@ class DataEq {
       static searchBy(magnitude) {
             let today = TimeEq.getDay().today;
             let start = TimeEq.getDay().start;
-            return fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=xml&starttime=${start}&endtime=${today}&minmagnitude=${magnitude}`)
+            return fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${start}&endtime=${today}&minmagnitude=${magnitude}`)
                   .then(response => {
                         return response.json()
                   })
                   .then(responseJson => {
-                        if (responseJson.teams) {
-                              return Promise.resolve(responseJson.teams);
+                        console.log(responseJson.features)
+                        if (responseJson.features != "") {
+                              return Promise.resolve(responseJson.features);
                         } else {
-                              return Promise.reject(`${keyword} is not found`);
+                              return Promise.reject(`Earthquake with minimum magnitude ${magnitude} mag is not found`);
                         }
                   })
+
       }
 
 }

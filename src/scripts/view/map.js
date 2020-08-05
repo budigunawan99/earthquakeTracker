@@ -1,6 +1,9 @@
 import TimeEq from "../data/time-eq.js";
 
 const map = () => {
+      const mapTitle = document.getElementById('map-title');
+      mapTitle.innerHTML = `Earthquake spot from ${TimeEq.getDay().start} until ${TimeEq.getDay().today}`;
+
       mapboxgl.accessToken = 'pk.eyJ1IjoiYm5hd2FuIiwiYSI6ImNrODY2b3h6NTAyMGwzbm8wNHFkenh4aWsifQ.AX-5rTWJwobWigvjLeQmWA';
       const map = new mapboxgl.Map({
             container: 'map',
@@ -20,20 +23,16 @@ const map = () => {
       map.addControl(geocoder);
 
       map.on('load', function () {
-            // Add a new source from our GeoJSON data and
-            // set the 'cluster' option to true. GL-JS will
-            // add the point_count property to your source data.
+         
             let today = TimeEq.getDay().today;
             let start = TimeEq.getDay().start;
             map.addSource('earthquakes', {
                   type: 'geojson',
-                  // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
-                  // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
                   data:
                         `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${start}&endtime=${today}`,
                   cluster: true,
-                  clusterMaxZoom: 14, // Max zoom to cluster points on
-                  clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+                  clusterMaxZoom: 14, 
+                  clusterRadius: 50 
             });
 
             map.addLayer({
@@ -42,11 +41,6 @@ const map = () => {
                   source: 'earthquakes',
                   filter: ['has', 'point_count'],
                   paint: {
-                        // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-                        // with three steps to implement three types of circles:
-                        //   * Blue, 20px circles when point count is less than 100
-                        //   * Yellow, 30px circles when point count is between 100 and 750
-                        //   * Pink, 40px circles when point count is greater than or equal to 750
                         'circle-color': [
                               'step',
                               ['get', 'point_count'],
@@ -93,7 +87,6 @@ const map = () => {
                   }
             });
 
-            // inspect a cluster on click
             map.on('click', 'clusters', function (e) {
                   let features = map.queryRenderedFeatures(e.point, {
                         layers: ['clusters']
@@ -112,10 +105,6 @@ const map = () => {
                   );
             });
 
-            // When a click event occurs on a feature in
-            // the unclustered-point layer, open a popup at
-            // the location of the feature, with
-            // description HTML from its properties.
             map.on('click', 'unclustered-point', function (e) {
                   let coordinates = e.features[0].geometry.coordinates.slice();
                   let mag = e.features[0].properties.mag;
@@ -127,9 +116,6 @@ const map = () => {
                         tsunami = 'no';
                   }
 
-                  // Ensure that if the map is zoomed out such that
-                  // multiple copies of the feature are visible, the
-                  // popup appears over the copy being pointed to.
                   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                   }

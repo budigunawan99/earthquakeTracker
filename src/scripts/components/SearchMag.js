@@ -30,7 +30,7 @@ class SearchMag extends HTMLElement {
                         flex-basis: 55%;
                   }
 
-                  .button{
+                  a.btn{
                         flex-basis: 45%;
                         margin: 24px 20px 20px 20px;
                   }
@@ -49,12 +49,16 @@ class SearchMag extends HTMLElement {
                               <div class="form-group">
                                     <label for="criteria">Criteria</label>
                                     <select class="form-control" id="criteria">
-                                          <option value="" selected>Select Magnitude</option>
-                                          <option value="title"><= 2</option>
+                                          <option value="" disabled selected>Select Magnitude</option>
+                                          <option value=5>>= 5</option>
+                                          <option value=6>>= 6</option>
+                                          <option value=7>>= 7</option>
+                                          <option value=8>>= 8</option>
+                                          <option value=9>>= 9</option>
                                     </select>
                               </div>
                               <div class="button">
-                                    <button id="searchButtonElement" type="submit" class="btn btn-primary">Search</button>
+                                    <a id="searchButtonElement" href="javascript:void(0)" class="btn btn-primary">Search</a>
                               </div>        
                         </div>
                       
