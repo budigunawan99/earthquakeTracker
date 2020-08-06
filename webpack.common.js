@@ -33,16 +33,28 @@ module.exports = {
                         ]
                   },
                   {
-                        test: /\.(svg|png|jpg|jpeg|gif)$/,                      
+                        test: /\.(svg|png|jpg|jpeg|gif)$/,
                         use: [
                               {
                                     loader: 'file-loader',
                                     options: {
-                                          name: './assets/[name].[ext]'                                         
+                                          name: './assets/[name].[ext]'
                                     }
                               },
                         ],
                   },
+                  {
+                        test: /\.(woff|woff2|eot)$/,
+                        use: [
+                              {
+                                    loader: 'file-loader',
+                                    options: {
+                                          name: '[name].[ext]',
+                                          outputPath: 'node_fonts/'
+                                    }
+                              }
+                        ]
+                  }
             ]
       },
       plugins: [
@@ -50,6 +62,11 @@ module.exports = {
             new HtmlWebpackPlugin({
                   template: "./src/index.html",
                   filename: "index.html"
+            }),
+            new webpack.ProvidePlugin({
+                  $: "jquery",
+                  jQuery: "jquery",
+                  mapboxgl: 'mapbox-gl'
             })
       ]
 }
