@@ -1,0 +1,102 @@
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.navbar {
+  margin-bottom: 0;
+  background-color: #34495e;
+  z-index: 9999;
+  border: 0;
+  font-size: 12px !important;
+  line-height: 2 !important;
+  letter-spacing: 4px;
+  border-radius: 0;
+  font-family: sans-serif;
+  box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.35);
+}
+
+.navbar .container-fluid {
+  padding: 0;
+}
+
+.navbar .navbar-header .logo {
+  margin-left: 10px;
+}
+
+.navbar li a,
+.navbar .navbar-brand,
+.navbar {
+  color: #fff !important;
+}
+
+.navbar a.navbar-brand {
+  text-align: center;
+}
+.navbar-brand > img {
+  position: relative;
+  top: -16px;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+  color: #fff !important;
+  background-color: #2c3e50 !important;
+}
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+  color: #fff !important;
+}
+.navbar ul {
+  width: 70%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+.navbar ul li {
+  flex-basis: 50%;
+  text-align: center;
+}
+main {
+  overflow: auto;
+}
+
+main #dashboard {
+  padding: 80px 5% 500px 5%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+main #detail {
+  padding: 80px 5%;
+  margin-bottom: 50px;
+}
+
+#map {
+  position: absolute;
+  top: 150px;
+  width: 90%;
+  padding: 20px;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+}
+
+@font-face {
+  font-family: "Prototype";
+  src: url("../assets/Prototype.ttf");
+}
+
+h2 {
+  color: #24252a;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: "Prototype";
+  margin-bottom: 30px;
+}

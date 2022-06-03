@@ -1,0 +1,38 @@
+{
+  "name": "earthquaketracker",
+  "version": "1.0.0",
+  "description": "Web application to track earthquake in the world",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "webpack-dev-server --config webpack.dev.js --open",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "keywords": [
+    "earthquake"
+  ],
+  "author": "Budi Gunawan",
+  "license": "ISC",
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.5.1",
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.5.1",
+    "mapbox-gl": "^1.11.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.0",
+    "file-loader": "^6.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "ttf-loader": "^1.0.2",
+    "webpack": "^4.44.1",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.1"
+  }
+}
